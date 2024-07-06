@@ -1,8 +1,10 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const productRoute = require('./routes/product.route');
+const cors = require('cors');
 const app = express()
 
+app.use(cors()); // Enable CORS
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
