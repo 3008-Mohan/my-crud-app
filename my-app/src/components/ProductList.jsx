@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { getProducts, createProduct } from "../api/productService";
 import ProductDetail from "./ProductDetail";
 import Bike from "../assets/images/bike.jpg";
-import HondaHness from "../assets/images/honda.jpg";
 import hero from "../assets/images/hero.jpg";
 import hunter from "../assets/images/hunter.jpg";
 import raider from "../assets/images/raider.jpg";
-import harley from "../assets/images/harley.jpg";
 import "./ProductList.css";
 
 const productImages = {
@@ -65,6 +63,7 @@ const ProductList = () => {
       const createdProduct = await createProduct(newProduct);
       setProducts([...products, createdProduct]);
       setNewProduct({ name: "", quantity: 0, price: 0 });
+      setIsAdd(!isAdd);
     } catch (error) {
       console.error("Error creating product:", error);
     }
@@ -82,7 +81,7 @@ const ProductList = () => {
 
   return (
     <div className="main-Page">
-      <div className={`main-Page-header ${isAdd ? "yes":"no"}`}>
+      <div className={`main-Page-header ${isAdd ? "yes" : "no"}`}>
         <div className="main-Page-header-right">
           <div className="title">
             <h1>
@@ -91,43 +90,79 @@ const ProductList = () => {
             </h1>
           </div>
         </div>
-        <div className="main-header-left" onClick={()=>{setIsAdd(!isAdd)}}>
+        <div
+          className="main-header-left"
+          onClick={() => {
+            setIsAdd(!isAdd);
+          }}
+        >
           <div className="add-whiz">{isAdd ? "GO BACK" : "ADD WHIZ"}</div>
         </div>
       </div>
       {isAdd ? (
         <>
-          <div>
-            <h2>Add New Product</h2>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSubmit();
-              }}
-            >
-              <input
-                type="text"
-                placeholder="Name"
-                value={newProduct.name}
-                onChange={handleName}
-                required
-              />
-              <input
-                type="number"
-                placeholder="Quantity"
-                value={newProduct.quantity}
-                onChange={handleQuantity}
-                required
-              />
-              <input
-                type="number"
-                placeholder="Price"
-                value={newProduct.price}
-                onChange={handlePrice}
-                required
-              />
-              <button type="submit">Add Product</button>
-            </form>
+          <div className="add-product">
+            <div className="form-submit">
+              <div className="form-header">
+                <h2>Add New Whiz</h2>
+              </div>
+              <div className="form-body">
+                <form>
+                  <div className="cont">
+                    <label htmlFor="name">Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      placeholder="Name"
+                      value={newProduct.name}
+                      onChange={handleName}
+                      required
+                    />
+                  </div>
+                  <div className="cont">
+                    <label htmlFor="quantity">Quantity</label>
+                    <input
+                      type="number"
+                      id="quantity"
+                      placeholder="Quantity"
+                      value={newProduct.quantity}
+                      onChange={handleQuantity}
+                      required
+                    />
+                  </div>
+                  <div className="cont">
+                    <label htmlFor="price">Price</label>
+                    <input
+                      type="number"
+                      id="price"
+                      placeholder="Price"
+                      value={newProduct.price}
+                      onChange={handlePrice}
+                      required
+                    />
+                  </div>
+                </form>
+              </div>
+              <div className="form-footer">
+                <button
+                  type="button"
+                  className="cancel"
+                  onClick={() => {
+                    setIsAdd(!isAdd);
+                  }}
+                >
+                  CANCEL
+                </button>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    handleSubmit();
+                  }}
+                >
+                  ADD WHIZ
+                </button>
+              </div>
+            </div>
           </div>
         </>
       ) : (
