@@ -79,7 +79,7 @@ const ProductDetail = ({ productID, setProduct, onProductDelete }) => {
   };
 
   return (
-    <div>
+    <>
       {isEdit ? (
         <>
           <input
@@ -104,12 +104,12 @@ const ProductDetail = ({ productID, setProduct, onProductDelete }) => {
           <h1>{product.name}</h1>
           <p>{product.quantity}</p>
           <p>Price: ${product.price}</p>
-          <button onClick={handleProduct}>Go Back</button>
-          <button onClick={handleDelete}>Delete</button>
-          <button onClick={handleUpdate}>Update</button>
+          <button className="act" onClick={handleProduct}>Go Back</button>
+          <button className="act" onClick={handleDelete}>Delete</button>
+          <button className="act" onClick={handleUpdate}>Update</button>
         </>
       )}
-    </div>
+    </>
   );
 };
 

@@ -1,0 +1,124 @@
+.main-Page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.main-Page-header {
+  height: 70px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #000000;
+  padding: 20px 0;
+  z-index: 1;
+}
+
+.main-Page-header-right {
+  margin-left: 20px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.main-Page-header-right .title h1 {
+  margin: 0;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.word-split {
+  color: #ffd700;
+}
+
+.image-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-wallpaper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.yes{
+  padding: 7px 0;
+}
+
+.main-header-left {
+  margin-right: 30px;
+  font-size: 1rem;
+  color: white;
+  padding: 10px 16px;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.myride {
+  font-size: 8rem;
+  font-weight: bold;
+  color: #ffffff;
+  border: 4px solid #ffffff;
+  padding: 0px 70px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.whiz {
+  color: #ffd700;
+  margin-left: 30px;
+}
+
+.whizzz {
+  position: relative;
+}
+
+.name {
+  font-weight: bold;
+  color: #ffffff;
+  border: 4px solid #ffffff;
+  padding: 0px 70px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+  font-size: 10rem;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.bike {
+  align-items: center;
+}
+
+.act {
+  color: #000000;
+}
